@@ -15,7 +15,7 @@ If you don't have YunoHost, please consult [the guide](https://yunohost.org/#/in
 
 ## Overview
 
-** !! WORK IN PROGRESS !! - DO NOT INSTALL YET **
+**!! WORK IN PROGRESS !! - DO NOT INSTALL YET**
 
 ### Features
 
@@ -32,7 +32,7 @@ This app may also be usable with [Home-Assistant package](https://github.com/Yun
 
 
 
-*** !! WORK IN PROGRESS !! - DO NOT INSTALL YET ***
+**!! WORK IN PROGRESS !! - DO NOT INSTALL YET**
 
 For now, although the package is fully functional (install, remove, backup, restore...), it is not yet integrated with domoticz and mosquitto package, this means that all settings needs to be done manually from inside the app.
 

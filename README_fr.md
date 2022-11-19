@@ -16,7 +16,7 @@ Si vous n'avez pas YunoHost, regardez [ici](https://yunohost.org/#/install) pour
 ## Vue d'ensemble
 
 
-** !! EN COURS DE CONSTRUCTION !! - NE PAS INSTALLER **
+**!! EN COURS DE CONSTRUCTION !! - NE PAS INSTALLER**
 
 ### Fonctionnalités
 
@@ -33,7 +33,7 @@ Cette application fonctionne également peut-être avec [le paquet Home-Assistan
 
 
 
-*** !! EN COURS DE CONSTRUCTION !! - NE PAS INSTALLER ***
+**!! EN COURS DE CONSTRUCTION !! - NE PAS INSTALLER**
 
 Pour l'instant, bien que le package fonctionne (installation, désinstallation, sauvegarde, restauration...), il n'est pas encore intégré avec domoticz et mosquitto, les paramétrages doivent être fait manuellement depuis l'application.
 ## Documentations et ressources
