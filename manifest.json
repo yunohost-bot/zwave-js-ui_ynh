@@ -42,7 +42,11 @@
             {
                 "name": "is_public",
                 "type": "boolean",
-                "default": false
+                "default": false,
+                "help": {
+                    "en": "If set public, anyone can access the app without login in yunohost, you activate password protected login from within the app",
+                    "fr": "Si publique, N'importe qui peut accéder à l'application sans se connecter à yunohost, vous pouvez cependant activer une connection par mot de passe depuis l'application" 
+                }
             }
         ]
     }

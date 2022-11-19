@@ -3,4 +3,4 @@
 
 ### Fonctionnalités
 
-Vise à intégrer zwave-js-ui dans domoticz_ynh de façon native
+Intègre zwave-js-ui dans domoticz_ynh de façon native

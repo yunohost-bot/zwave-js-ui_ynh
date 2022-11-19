@@ -2,4 +2,4 @@
 
 ### Features
 
-Aims to integrate zwave-js-ui natively in Domoticz_ynh
+Integrate zwave-js-ui natively in Domoticz_ynh
