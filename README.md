@@ -19,7 +19,12 @@ If you don't have YunoHost, please consult [the guide](https://yunohost.org/#/in
 
 ### Features
 
-Integrate zwave-js-ui natively in Domoticz_ynh
+Integrate zwave-js-ui natively in Domoticz_ynh.
+Zwave-JS-UI,also known under previous name ZWaveJS2MQTT, is a replacement for Openzwave, and exposes Z-Wave devices to an MQTT broker in a fully configurable manner.
+
+To work correctly, this app require domoticz with mqtt server mosquitto installed. Please refer to [domoticz package for Yunohost](https://github.com/YunoHost-Apps/domoticz_ynh) for more information about how to set up domoticz and Mosquitto.
+
+This app may also be usable with [Home-Assistant package](https://github.com/YunoHost-Apps/homeassistant_ynh) but I never tested it.
 
 **Shipped version:** 8.4.1~ynh1
 ## Disclaimers / important information
@@ -28,18 +33,8 @@ Integrate zwave-js-ui natively in Domoticz_ynh
 
 *** !! WORK IN PROGRESS !! - DO NOT INSTALL YET ***
 
-* Any known limitations, constrains or stuff not working, such as (but not limited to):
-    * requiring a full dedicated domain => Due to the fact that is is compiled with the path and I don't want to recompile it each time
-    * architectures not supported ?
-    * not-working single-sign on or LDAP integration ?
-    * the app requires an important amount of RAM / disk / .. to install or to work properly
-    * etc...
+For now, although the package is fully functional (install, remove, backup, restore...), it is not yet integrated with domoticz and mosquitto package, this means that all settings needs to be done manually from inside the app.
 
-* Other infos that people should be aware of, such as:
-    * any specific step to perform after installing (such as manually finishing the install, specific admin credentials, ...)
-    * how to configure / administrate the application if it ain't obvious
-    * upgrade process / specificities / things to be aware of ?
-    * security considerations ?
 
 ## Documentation and resources
 

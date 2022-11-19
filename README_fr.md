@@ -20,7 +20,12 @@ Si vous n'avez pas YunoHost, regardez [ici](https://yunohost.org/#/install) pour
 
 ### Fonctionnalités
 
-Intègre zwave-js-ui dans domoticz_ynh de façon native
+Intègre zwave-js-ui dans domoticz_ynh de façon native.
+Zwave-JS-UI, aussi connu sous le nom de ZWaveJS2MQTT, est un remplaçant pour Openzwave. Il permet d'exposer les terminaux Z-Wave à un broker  MQTT de façon complètement configurable.
+
+Pour fonctionner correctement, cette application nécessite d'avoir domoticz avec un serveur mosquitto d'également installés. Veuillez vous reporter au [paquet domoticz pour Yunohost](https://github.com/YunoHost-Apps/domoticz_ynh) afin d'obtenir plus d'information sur comment le faire.
+
+Cette application fonctionne également peut-être avec [le paquet Home-Assistant](https://github.com/YunoHost-Apps/homeassistant_ynh) mais je ne l'ai jamais testée.
 
 **Version incluse :** 8.4.1~ynh1
 ## Avertissements / informations importantes
@@ -29,19 +34,7 @@ Intègre zwave-js-ui dans domoticz_ynh de façon native
 
 *** !! EN COURS DE CONSTRUCTION !! - NE PAS INSTALLER ***
 
-* Any known limitations, constrains or stuff not working, such as (but not limited to):
-    * requiring a full dedicated domain ?
-    * architectures not supported ?
-    * not-working single-sign on or LDAP integration ?
-    * the app requires an important amount of RAM / disk / .. to install or to work properly
-    * etc...
-
-* Other infos that people should be aware of, such as:
-    * any specific step to perform after installing (such as manually finishing the install, specific admin credentials, ...)
-    * how to configure / administrate the application if it ain't obvious
-    * upgrade process / specificities / things to be aware of ?
-    * security considerations ?
-
+Pour l'instant, bien que le package fonctionne (installation, désinstallation, sauvegarde, restauration...), il n'est pas encore intégré avec domoticz et mosquitto, les paramétrages doivent être fait manuellement depuis l'application.
 ## Documentations et ressources
 
 * Site officiel de l'app : <https://zwave-js.github.io/zwave-js-ui/#/>
