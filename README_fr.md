@@ -20,7 +20,7 @@ Si vous n'avez pas YunoHost, regardez [ici](https://yunohost.org/#/install) pour
 
 ### Fonctionnalités
 
-Vise à intégrer zwave-js-ui dans domoticz_ynh de façon native
+Intègre zwave-js-ui dans domoticz_ynh de façon native
 
 **Version incluse :** 8.4.1~ynh1
 ## Avertissements / informations importantes
