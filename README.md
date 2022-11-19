@@ -29,7 +29,7 @@ Aims to integrate zwave-js-ui natively in Domoticz_ynh
 *** !! WORK IN PROGRESS !! - DO NOT INSTALL YET ***
 
 * Any known limitations, constrains or stuff not working, such as (but not limited to):
-    * requiring a full dedicated domain ?
+    * requiring a full dedicated domain => Due to the fact that is is compiled with the path and I don't want to recompile it each time
     * architectures not supported ?
     * not-working single-sign on or LDAP integration ?
     * the app requires an important amount of RAM / disk / .. to install or to work properly
