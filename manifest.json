@@ -1,0 +1,53 @@
+{
+    "name": "Zwave-JS-UI",
+    "id": "zwave-js-ui",
+    "packaging_format": 1,
+    "description": {
+        "en": "Full featured Z-Wave Control Panel and MQTT Gateway integrated with domoticz",
+        "fr": "Panneau de controle Z-Wave et MQTT intégré avec Domoticz"
+    },
+    "version": "8.4.1~ynh1",
+    "url": "https://github.com/zwave-js/zwave-js-ui",
+    "upstream": {
+        "license": "MIT",
+        "website": "https://zwave-js.github.io/zwave-js-ui/#/",
+        "admindoc": "https://zwave-js.github.io/zwave-js-ui/#/",
+        "userdoc": "https://www.domoticz.com/wiki/Zwave-JS-UI",
+        "code": "https://github.com/zwave-js/zwave-js-ui"
+    },
+    "license": "MIT",
+    "maintainer": {
+        "name": "Krakinou",
+        "email": "misterl56@hotmail.com"
+    },
+    "requirements": {
+        "yunohost": ">= 11.0.0"
+    },
+    "multi_instance": false,
+    "services": [
+        "domoticz"
+    ],
+    "arguments": {
+        "install": [
+            {
+                "name": "domain",
+                "type": "domain"
+            },
+            {
+                "name": "path",
+                "type": "path",
+                "example": "/zwavejsui",
+                "default": "/zwavejsui"
+            },
+            {
+                "name": "is_public",
+                "type": "boolean",
+                "default": false,
+                "help": {
+                    "en": "If set public, anyone can access the app without login in yunohost, you activate password protected login from within the app",
+                    "fr": "Si publique, N'importe qui peut accéder à l'application sans se connecter à yunohost, vous pouvez cependant activer une connection par mot de passe depuis l'application" 
+                }
+            }
+        ]
+    }
+}

@@ -1,0 +1,6 @@
+SOURCE_URL=https://github.com/zwave-js/zwave-js-ui/releases/download/v8.4.1/zwave-js-ui-v8.4.1-linux.zip
+SOURCE_SUM=3adcfd96e10c87fd0161d0ebefe8e930f43f368946940cdea5060a2209be38de
+SOURCE_SUM_PRG=sha256sum
+SOURCE_FORMAT=zip
+SOURCE_IN_SUBDIR=false
+SOURCE_EXTRACT=true
