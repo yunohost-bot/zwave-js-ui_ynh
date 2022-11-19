@@ -1,5 +1,5 @@
 
-** !! EN COURS DE CONSTRUCTION !! - NE PAS INSTALLER **
+**!! EN COURS DE CONSTRUCTION !! - NE PAS INSTALLER**
 
 ### Fonctionnalités
 

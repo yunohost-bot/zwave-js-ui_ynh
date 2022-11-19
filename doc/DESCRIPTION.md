@@ -1,4 +1,4 @@
-** !! WORK IN PROGRESS !! - DO NOT INSTALL YET **
+**!! WORK IN PROGRESS !! - DO NOT INSTALL YET**
 
 ### Features
 
