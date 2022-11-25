@@ -4,7 +4,7 @@
 # COMMON VARIABLES
 #=================================================
 # dependencies used by the app (must be on a single line)
-#pkg_dependencies="deb1 deb2 $php_dependencies"
+NODEJS_VERSION=19
 
 #=================================================
 # PERSONAL HELPERS

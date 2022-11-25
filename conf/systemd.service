@@ -6,8 +6,10 @@ After=network.target
 Type=simple
 User=__APP__
 Group=__APP__
+#Environment not working, don't know why, have to add env command to ExecStart, if you know a better way, don't hesitate to make a PR
+#Environment="__YNH_NODE_LOAD_PATH__"
 WorkingDirectory=__FINALPATH__/
-ExecStart=__FINALPATH__/zwave-js-ui-linux
+ExecStart=env __YNH_NODE_LOAD_PATH__ yarn start
 StandardOutput=append:/var/log/__APP__/__APP__.log
 StandardError=inherit
 
