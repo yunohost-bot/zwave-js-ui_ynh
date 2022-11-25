@@ -66,6 +66,15 @@ ynh_script_progression --message="Making sure dedicated system user exists..." -
 ynh_system_user_create --username=$app --home_dir="$final_path"
 
 #=================================================
+# UPGRADE DEPENDENCIES
+#=================================================
+ynh_script_progression --message="Upgrading dependencies..." --weight=1
+
+ynh_install_nodejs --nodejs_version=$NODEJS_VERSION
+ynh_use_nodejs
+ynh_exec_warn_less $ynh_npm install ---global yarn
+
+#=================================================
 # DOWNLOAD, CHECK AND UNPACK SOURCE
 #=================================================
 
@@ -75,24 +84,28 @@ then
 
 	# Download, check integrity, uncompress and patch the source from app.src
 	ynh_setup_source --dest_dir="$final_path"
+
+	chmod 750 "$final_path"
+	chmod -R o-rwx "$final_path"
+	chown -R $app: "$final_path"
+	
+	ynh_script_progression --message="Building from sources..." --weight=15
+	pushd "$final_path"
+		ynh_script_progression --message="Fetching Yarn dependencies... This can be very long, be patient !" --weight=18
+		ynh_exec_warn_less ynh_exec_as $app env $ynh_node_load_PATH yarn install
+		ynh_script_progression --message="Cleaning cache... " --weight=3
+		ynh_exec_warn_less ynh_exec_as $app env $ynh_node_load_PATH yarn cache clean 2>&1
+		ynh_script_progression --message="Building Yarn dependencies... This can be very long, be patient !" --weight=18
+		ynh_exec_warn_less ynh_exec_as $app env $ynh_node_load_PATH yarn run build
+		ynh_script_progression --message="Cleaning cache... " --weight=3
+		ynh_exec_warn_less ynh_exec_as $app env $ynh_node_load_PATH yarn cache clean 2>&1
+	popd
+
+	chmod 750 "$final_path"
+	chmod -R o-rwx "$final_path"
+	chown -R $app: "$final_path"
+
 fi
-
-# FIXME: this should be managed by the core in the future
-# Here, as a packager, you may have to tweak the ownerhsip/permissions
-# such that the appropriate users (e.g. maybe www-data) can access
-# files in some cases.
-# But FOR THE LOVE OF GOD, do not allow r/x for "others" on the entire folder -
-# this will be treated as a security issue.
-chmod 750 "$final_path"
-chmod -R o-rwx "$final_path"
-chown -R $app: "$final_path"
-
-#=================================================
-# UPGRADE DEPENDENCIES
-#=================================================
-#ynh_script_progression --message="Upgrading dependencies..." --weight=1
-
-#ynh_install_app_dependencies $pkg_dependencies
 
 #=================================================
 # NGINX CONFIGURATION
@@ -163,7 +176,7 @@ yunohost service add $app --description="Zwave integration in domoticz" --log="/
 #=================================================
 ynh_script_progression --message="Starting a systemd service..." --weight=1
 
-ynh_systemd_action --service_name=$app --action="start" --log_path="/var/log/$app/$app.log"
+ynh_systemd_action --service_name=$app --action="start" --line_match="Listening on port" -t 30 --log_path="/var/log/$app/$app.log"
 
 #=================================================
 # UPGRADE FAIL2BAN
