@@ -4,7 +4,7 @@
 # COMMON VARIABLES
 #=================================================
 # dependencies used by the app (must be on a single line)
-NODEJS_VERSION=19
+NODEJS_VERSION=18
 
 #=================================================
 # PERSONAL HELPERS
