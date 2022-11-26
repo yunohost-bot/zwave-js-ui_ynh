@@ -50,6 +50,16 @@ ynh_script_progression --message="Recreating the dedicated system user..." --wei
 # Create the dedicated user (if not existing)
 ynh_system_user_create --username=$app --home_dir="$final_path"
 
+if grep dialout -q < /etc/group; then
+	usermod -a -G dialout "$app"
+fi
+if grep i2c -q < /etc/group; then
+	usermod -a -G i2c "$app"
+fi
+if grep gpio -q < /etc/group; then
+	usermod -a -G gpio "$app"
+fi
+
 #=================================================
 # INSTALL EXTRA DEPENDENCIES
 #=================================================
