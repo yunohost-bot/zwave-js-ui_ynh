@@ -1,5 +1,5 @@
-SOURCE_URL=https://github.com/zwave-js/zwave-js-ui/archive/refs/tags/v8.4.1.zip
-SOURCE_SUM=71f2cac714f7fd0a7779fb1fac059636810d3261d7e82fc33fe3b1cdf0ac9391
+SOURCE_URL=https://github.com/zwave-js/zwave-js-ui/archive/refs/tags/v8.5.1.zip
+SOURCE_SUM=72fe565e7a93959c9bcc797cf86e8a1120ad26e0043452d5c3fdd60b4a05e3aa
 SOURCE_SUM_PRG=sha256sum
 SOURCE_FORMAT=zip
 SOURCE_IN_SUBDIR=true
