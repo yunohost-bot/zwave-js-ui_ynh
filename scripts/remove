@@ -64,6 +64,16 @@ ynh_script_progression --message="Removing app main directory..." --weight=1
 # Remove the app directory securely
 ynh_secure_remove --file="$final_path"
 
+
+#=================================================
+# REMOVE ADDITIONNAL SWAP
+#=================================================
+#In case install or upgrade went wrong, remove script is launched, so we need to ensure additional swap is deleted
+if [ -e /swap_$app ]; then
+	ynh_script_progression --message="Remove additionnal swap..." --weight=2
+	ynh_del_swap
+fi
+
 #=================================================
 # REMOVE NGINX CONFIGURATION
 #=================================================
