@@ -15,7 +15,6 @@ If you don't have YunoHost, please consult [the guide](https://yunohost.org/#/in
 
 ## Overview
 
-**!! WORK IN PROGRESS !! - DO NOT INSTALL YET**
 
 ### Features
 
@@ -24,6 +23,7 @@ Integrate zwave-js-ui natively in Domoticz_ynh.
 **Zwave-JS-UI**, also known under previous name ZWaveJS2MQTT, is a replacement for Openzwave. It exposes Z-Wave devices to an MQTT broker in a fully configurable manner.
 
 To work correctly, this app require **domoticz** with **mqtt broker Mosquitto** installed. Please refer to [domoticz package for Yunohost](https://github.com/YunoHost-Apps/domoticz_ynh) for more information about how to set up domoticz and Mosquitto.
+You may also install both app separatly.
 
 This app may also be usable with [Home-Assistant package](https://github.com/YunoHost-Apps/homeassistant_ynh) but I never tested it.
 
@@ -32,11 +32,8 @@ This app may also be usable with [Home-Assistant package](https://github.com/Yun
 
 
 
-**!! WORK IN PROGRESS !! - DO NOT INSTALL YET**
 
-For now, although the package is fully functional (install, remove, backup, restore...), it is not yet integrated with domoticz and mosquitto package, this means that all settings needs to be done manually from inside the app.
-
-
+For now, although the package is fully functional (install, remove, backup, restore...), it is not integrated with domoticz and mosquitto package, this means that all settings needs to be done manually from inside the app.
 ## Documentation and resources
 
 * Official app website: <https://zwave-js.github.io/zwave-js-ui/#/>
