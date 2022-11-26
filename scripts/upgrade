@@ -92,6 +92,8 @@ then
 	ynh_script_progression --message="Building from sources..." --weight=15
 	pushd "$final_path"
 		ynh_script_progression --message="Fetching Yarn dependencies... This can be very long, be patient !" --weight=18
+		ynh_exec_warn_less ynh_exec_as $app env $ynh_node_load_PATH yarn plugin import workspace-tools
+		ynh_exec_warn_less ynh_exec_as $app env $ynh_node_load_PATH yarn workspaces focus --production
 		ynh_exec_warn_less ynh_exec_as $app env $ynh_node_load_PATH yarn install --network-timeout 1000000000
 		ynh_script_progression --message="Cleaning cache... " --weight=3
 		ynh_exec_warn_less ynh_exec_as $app env $ynh_node_load_PATH yarn cache clean 2>&1
