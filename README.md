@@ -27,7 +27,7 @@ You may also install both app separatly.
 
 This app may also be usable with [Home-Assistant package](https://github.com/YunoHost-Apps/homeassistant_ynh) but I never tested it.
 
-**Shipped version:** 8.6.0~ynh1
+**Shipped version:** 8.6.1~ynh1
 ## Disclaimers / important information
 
 
