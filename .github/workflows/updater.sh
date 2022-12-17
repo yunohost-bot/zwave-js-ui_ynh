@@ -87,7 +87,7 @@ rm -rf $tempdir
 
 # Rewrite source file
 cat <<EOT > conf/$src.src
-SOURCE_URL=$asset_url.$extension
+SOURCE_URL=$asset_url
 SOURCE_SUM=$checksum
 SOURCE_SUM_PRG=sha256sum
 SOURCE_FORMAT=$extension
