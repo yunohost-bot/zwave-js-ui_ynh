@@ -9,7 +9,7 @@ current_version=$(cat manifest.json | jq -j '.version|split("~")[0]')
 repo=$(cat manifest.json | jq -j '.upstream.code|split("https://github.com/")[1]')
 # Some jq magic is needed, because the latest upstream release is not always the latest version (e.g. security patches for older versions)
 version=$(curl --silent "https://api.github.com/repos/$repo/releases" | jq -r '.[] | select( .prerelease != true ) | .tag_name' | sort -V | tail -1)
-assets=($(curl --silent "https://api.github.com/repos/$repo/releases" | jq -r '[ .[] | select(.tag_name=="'$version'").assets[].browser_download_url ] | join(" ") | @sh' | tr -d "'"))
+assets=($(curl --silent "https://api.github.com/repos/$repo/releases" | jq -r '[ .[] | select(.tag_name=="'$version'").zipball_url ] | join(" ") | @sh' | tr -d "'"))
 
 # Later down the script, we assume the version has only digits and dots
 # Sometimes the release name starts with a "v", so let's filter it out.
@@ -53,15 +53,17 @@ echo "Handling asset at $asset_url"
 
 # Assign the asset to a source file in conf/ directory
 # Leave $src empty to ignore the asset
-case $asset_url in
-  *"Source"*)
-    src="app"
-    ;;
-  *)
-    src=""
-    ;;
-esac
-
+#case $asset_url in
+#  *"Source"*)
+#    src="app"
+#    ;;
+#  *)
+#    src=""
+#    ;;
+#esac
+#There should be only one asset in the zipball directory and it is a zip file
+src="app"
+extension="zip"
 # If $src is not empty, let's process the asset
 if [ ! -z "$src" ]; then
 
@@ -77,11 +79,11 @@ checksum=$(sha256sum "$tempdir/$filename" | head -c 64)
 rm -rf $tempdir
 
 # Get extension
-if [[ $filename == *.tar.gz ]]; then
-  extension=tar.gz
-else
-  extension=${filename##*.}
-fi
+#if [[ $filename == *.tar.gz ]]; then
+#  extension=tar.gz
+#else
+#  extension=${filename##*.}
+#fi
 
 # Rewrite source file
 cat <<EOT > conf/$src.src
@@ -90,7 +92,7 @@ SOURCE_SUM=$checksum
 SOURCE_SUM_PRG=sha256sum
 SOURCE_FORMAT=$extension
 SOURCE_IN_SUBDIR=true
-SOURCE_FILENAME=
+SOURCE_EXTRACT=true
 EOT
 echo "... conf/$src.src updated"
 
