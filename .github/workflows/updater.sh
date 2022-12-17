@@ -53,14 +53,16 @@ echo "Handling asset at $asset_url"
 
 # Assign the asset to a source file in conf/ directory
 # Leave $src empty to ignore the asset
-case $asset_url in
-  *"Source"*)
-    src="app"
-    ;;
-  *)
-    src=""
-    ;;
-esac
+#case $asset_url in
+#  *"Source"*)
+#    src="app"
+#    ;;
+#  *)
+#    src=""
+#    ;;
+#esac
+#There should be only one asset in the zipball directory
+src="app"
 
 # If $src is not empty, let's process the asset
 if [ ! -z "$src" ]; then
