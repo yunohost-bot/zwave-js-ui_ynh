@@ -61,9 +61,9 @@ echo "Handling asset at $asset_url"
 #    src=""
 #    ;;
 #esac
-#There should be only one asset in the zipball directory
+#There should be only one asset in the zipball directory and it is a zip file
 src="app"
-
+extension="zip"
 # If $src is not empty, let's process the asset
 if [ ! -z "$src" ]; then
 
@@ -79,20 +79,20 @@ checksum=$(sha256sum "$tempdir/$filename" | head -c 64)
 rm -rf $tempdir
 
 # Get extension
-if [[ $filename == *.tar.gz ]]; then
-  extension=tar.gz
-else
-  extension=${filename##*.}
-fi
+#if [[ $filename == *.tar.gz ]]; then
+#  extension=tar.gz
+#else
+#  extension=${filename##*.}
+#fi
 
 # Rewrite source file
 cat <<EOT > conf/$src.src
-SOURCE_URL=$asset_url
+SOURCE_URL=$asset_url.$extension
 SOURCE_SUM=$checksum
 SOURCE_SUM_PRG=sha256sum
 SOURCE_FORMAT=$extension
 SOURCE_IN_SUBDIR=true
-SOURCE_FILENAME=
+SOURCE_EXTRACT=true
 EOT
 echo "... conf/$src.src updated"
 
