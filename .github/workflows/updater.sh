@@ -1,18 +1,6 @@
 #!/bin/bash
 
 #=================================================
-# PACKAGE UPDATING HELPER
-#=================================================
-
-# This script is meant to be run by GitHub Actions
-# The YunoHost-Apps organisation offers a template Action to run this script periodically
-# Since each app is different, maintainers can adapt its contents so as to perform
-# automatic actions when a new upstream release is detected.
-
-# Remove this exit command when you are ready to run this Action
-exit 1
-
-#=================================================
 # FETCHING LATEST RELEASE AND ITS ASSETS
 #=================================================
 
@@ -64,14 +52,10 @@ for asset_url in ${assets[@]}; do
 echo "Handling asset at $asset_url"
 
 # Assign the asset to a source file in conf/ directory
-# Here we base the source file name upon a unique keyword in the assets url (admin vs. update)
 # Leave $src empty to ignore the asset
 case $asset_url in
-  *"admin"*)
+  *"Source"*)
     src="app"
-    ;;
-  *"update"*)
-    src="app-upgrade"
     ;;
   *)
     src=""
