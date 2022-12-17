@@ -6,7 +6,7 @@
         "en": "Full featured Z-Wave Control Panel and MQTT Gateway integrated with domoticz",
         "fr": "Panneau de controle Z-Wave et MQTT intégré avec Domoticz"
     },
-    "version": "8.6.0~ynh1",
+    "version": "8.6.1~ynh1",
     "url": "https://github.com/zwave-js/zwave-js-ui",
     "upstream": {
         "license": "MIT",
@@ -45,7 +45,7 @@
                 "default": false,
                 "help": {
                     "en": "If set public, anyone can access the app without login in yunohost, you activate password protected login from within the app",
-                    "fr": "Si publique, N'importe qui peut accéder à l'application sans se connecter à yunohost, vous pouvez cependant activer une connection par mot de passe depuis l'application" 
+                    "fr": "Si publique, N'importe qui peut accéder à l'application sans se connecter à yunohost, vous pouvez cependant activer une connection par mot de passe depuis l'application"
                 }
             }
         ]
