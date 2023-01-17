@@ -6,7 +6,7 @@
         "en": "Full featured Z-Wave Control Panel and MQTT Gateway integrated with domoticz",
         "fr": "Panneau de controle Z-Wave et MQTT intégré avec Domoticz"
     },
-    "version": "8.6.2~ynh1",
+    "version": "8.6.3~ynh1",
     "url": "https://github.com/zwave-js/zwave-js-ui",
     "upstream": {
         "license": "MIT",
