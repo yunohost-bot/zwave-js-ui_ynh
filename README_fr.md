@@ -5,15 +5,15 @@ It shall NOT be edited by hand.
 
 # Zwave-JS-UI pour YunoHost
 
-[![Niveau d'intégration](https://dash.yunohost.org/integration/zwave-js-ui.svg)](https://dash.yunohost.org/appci/app/zwave-js-ui) ![Statut du fonctionnement](https://ci-apps.yunohost.org/ci/badges/zwave-js-ui.status.svg) ![Statut de maintenance](https://ci-apps.yunohost.org/ci/badges/zwave-js-ui.maintain.svg)  
+[![Niveau d’intégration](https://dash.yunohost.org/integration/zwave-js-ui.svg)](https://dash.yunohost.org/appci/app/zwave-js-ui) ![Statut du fonctionnement](https://ci-apps.yunohost.org/ci/badges/zwave-js-ui.status.svg) ![Statut de maintenance](https://ci-apps.yunohost.org/ci/badges/zwave-js-ui.maintain.svg)  
 [![Installer Zwave-JS-UI avec YunoHost](https://install-app.yunohost.org/install-with-yunohost.svg)](https://install-app.yunohost.org/?app=zwave-js-ui)
 
 *[Read this readme in english.](./README.md)*
 
-> *Ce package vous permet d'installer Zwave-JS-UI rapidement et simplement sur un serveur YunoHost.
-Si vous n'avez pas YunoHost, regardez [ici](https://yunohost.org/#/install) pour savoir comment l'installer et en profiter.*
+> *Ce package vous permet d’installer Zwave-JS-UI rapidement et simplement sur un serveur YunoHost.
+Si vous n’avez pas YunoHost, regardez [ici](https://yunohost.org/#/install) pour savoir comment l’installer et en profiter.*
 
-## Vue d'ensemble
+## Vue d’ensemble
 
 
 ### Fonctionnalités
@@ -27,7 +27,7 @@ Vous pouvez également installer les deux applications séparément.
 
 Cette application fonctionne également peut-être avec [le paquet Home-Assistant](https://github.com/YunoHost-Apps/homeassistant_ynh) mais je ne l'ai jamais testée.
 
-**Version incluse :** 8.6.2~ynh1
+**Version incluse :** 8.6.3~ynh1
 ## Avertissements / informations importantes
 
 
@@ -38,10 +38,10 @@ Pour l'instant, bien que le package fonctionne (installation, désinstallation, 
 Pendant l'installation, la totalité de l'application doit être recompilé en utilisant yarn : cela amène à des temps d'installation très long. Un fichier de swap temporaire sera créé si moins de 2Go de mémoire sont disponibles (RAM + swap): Assurez vous d'avoir suffisament d'espace disque.
 ## Documentations et ressources
 
-* Site officiel de l'app : <https://zwave-js.github.io/zwave-js-ui/#/>
+* Site officiel de l’app : <https://zwave-js.github.io/zwave-js-ui/#/>
 * Documentation officielle utilisateur : <https://www.domoticz.com/wiki/Zwave-JS-UI>
-* Documentation officielle de l'admin : <https://zwave-js.github.io/zwave-js-ui/#/>
-* Dépôt de code officiel de l'app : <https://github.com/zwave-js/zwave-js-ui>
+* Documentation officielle de l’admin : <https://zwave-js.github.io/zwave-js-ui/#/>
+* Dépôt de code officiel de l’app : <https://github.com/zwave-js/zwave-js-ui>
 * Documentation YunoHost pour cette app : <https://yunohost.org/app_zwave-js-ui>
 * Signaler un bug : <https://github.com/YunoHost-Apps/zwave-js-ui_ynh/issues>
 
@@ -57,4 +57,4 @@ ou
 sudo yunohost app upgrade zwave-js-ui -u https://github.com/YunoHost-Apps/zwave-js-ui_ynh/tree/testing --debug
 ```
 
-**Plus d'infos sur le packaging d'applications :** <https://yunohost.org/packaging_apps>
+**Plus d’infos sur le packaging d’applications :** <https://yunohost.org/packaging_apps>
