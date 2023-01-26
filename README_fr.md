@@ -5,7 +5,7 @@ It shall NOT be edited by hand.
 
 # Zwave-JS-UI pour YunoHost
 
-[![Niveau d’intégration](https://dash.yunohost.org/integration/zwave-js-ui.svg)](https://dash.yunohost.org/appci/app/zwave-js-ui) ![Statut du fonctionnement](https://ci-apps.yunohost.org/ci/badges/zwave-js-ui.status.svg) ![Statut de maintenance](https://ci-apps.yunohost.org/ci/badges/zwave-js-ui.maintain.svg)  
+[![Niveau d’intégration](https://dash.yunohost.org/integration/zwave-js-ui.svg)](https://dash.yunohost.org/appci/app/zwave-js-ui) ![Statut du fonctionnement](https://ci-apps.yunohost.org/ci/badges/zwave-js-ui.status.svg) ![Statut de maintenance](https://ci-apps.yunohost.org/ci/badges/zwave-js-ui.maintain.svg)
 [![Installer Zwave-JS-UI avec YunoHost](https://install-app.yunohost.org/install-with-yunohost.svg)](https://install-app.yunohost.org/?app=zwave-js-ui)
 
 *[Read this readme in english.](./README.md)*
@@ -22,10 +22,11 @@ Intègre zwave-js-ui dans domoticz_ynh de façon native.
 
 **Zwave-JS-UI**, aussi connu sous le nom de ZWaveJS2MQTT, est un remplaçant pour Openzwave. Il permet d'exposer les terminaux Z-Wave à un broker  MQTT de façon complètement configurable.
 
-Pour fonctionner correctement, cette application nécessite d'avoir **domoticz** avec le **broker MQTT mosquitto** d'également installés. Veuillez vous reporter au [paquet domoticz pour Yunohost](https://github.com/YunoHost-Apps/domoticz_ynh) afin d'obtenir plus d'information sur comment le faire.
-Vous pouvez également installer les deux applications séparément.
+Pour fonctionner correctement, cette application nécessite d'avoir installé soit:
+- le package [domoticz](https://github.com/YunoHost-Apps/domoticz_ynh) avec le **broker MQTT mosquitto**
+- le package [Home-Assistant](https://github.com/YunoHost-Apps/homeassistant_ynh)
+Follow the [quick start instruction](https://zwave-js.github.io/zwave-js-ui/#/getting-started/quick-start?id=minimum-settings) to set up the integration with one or the other.
 
-Cette application fonctionne également peut-être avec [le paquet Home-Assistant](https://github.com/YunoHost-Apps/homeassistant_ynh) mais je ne l'ai jamais testée.
 
 **Version incluse :** 8.6.3~ynh1
 ## Avertissements / informations importantes
