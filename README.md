@@ -5,7 +5,7 @@ It shall NOT be edited by hand.
 
 # Zwave-JS-UI for YunoHost
 
-[![Integration level](https://dash.yunohost.org/integration/zwave-js-ui.svg)](https://dash.yunohost.org/appci/app/zwave-js-ui) ![Working status](https://ci-apps.yunohost.org/ci/badges/zwave-js-ui.status.svg) ![Maintenance status](https://ci-apps.yunohost.org/ci/badges/zwave-js-ui.maintain.svg)  
+[![Integration level](https://dash.yunohost.org/integration/zwave-js-ui.svg)](https://dash.yunohost.org/appci/app/zwave-js-ui) ![Working status](https://ci-apps.yunohost.org/ci/badges/zwave-js-ui.status.svg) ![Maintenance status](https://ci-apps.yunohost.org/ci/badges/zwave-js-ui.maintain.svg)
 [![Install Zwave-JS-UI with YunoHost](https://install-app.yunohost.org/install-with-yunohost.svg)](https://install-app.yunohost.org/?app=zwave-js-ui)
 
 *[Lire ce readme en français.](./README_fr.md)*
@@ -22,12 +22,12 @@ Integrate zwave-js-ui natively in Domoticz_ynh.
 
 **Zwave-JS-UI**, also known under previous name ZWaveJS2MQTT, is a replacement for Openzwave. It exposes Z-Wave devices to an MQTT broker in a fully configurable manner.
 
-To work correctly, this app require **domoticz** with **mqtt broker Mosquitto** installed. Please refer to [domoticz package for Yunohost](https://github.com/YunoHost-Apps/domoticz_ynh) for more information about how to set up domoticz and Mosquitto.
-You may also install both app separatly.
+To work correctly, this app require to install either
+- [domoticz package](https://github.com/YunoHost-Apps/domoticz_ynh) with **mqtt broker Mosquitto**
+- or [Home-Assistant package](https://github.com/YunoHost-Apps/homeassistant_ynh)
+Suivez le [guide d'installation rapide](https://zwave-js.github.io/zwave-js-ui/#/getting-started/quick-start?id=minimum-settings) pour l'intégrer dans l'une ou l'autre de ces applications.
 
-This app may also be usable with [Home-Assistant package](https://github.com/YunoHost-Apps/homeassistant_ynh) but I never tested it.
-
-**Shipped version:** 8.6.3~ynh1
+**Shipped version:** 8.8.1~ynh1
 ## Disclaimers / important information
 
 
