@@ -8,4 +8,5 @@ Intègre zwave-js-ui dans domoticz_ynh de façon native.
 Pour fonctionner correctement, cette application nécessite d'avoir installé soit:
 - le package [domoticz](https://github.com/YunoHost-Apps/domoticz_ynh) avec le **broker MQTT mosquitto**
 - le package [Home-Assistant](https://github.com/YunoHost-Apps/homeassistant_ynh)
+
 Follow the [quick start instruction](https://zwave-js.github.io/zwave-js-ui/#/getting-started/quick-start?id=minimum-settings) to set up the integration with one or the other.
