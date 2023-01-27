@@ -27,7 +27,7 @@ To work correctly, this app require to install either
 - or [Home-Assistant package](https://github.com/YunoHost-Apps/homeassistant_ynh)
 Suivez le [guide d'installation rapide](https://zwave-js.github.io/zwave-js-ui/#/getting-started/quick-start?id=minimum-settings) pour l'intégrer dans l'une ou l'autre de ces applications.
 
-**Shipped version:** 8.6.3~ynh1
+**Shipped version:** 8.8.1~ynh1
 ## Disclaimers / important information
 
 
