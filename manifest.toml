@@ -36,8 +36,8 @@ ram.runtime = "50M"
     default = "/zwavejsui"
 
     [install.init_main_permission]
-    help.en = "If set public, anyone can access the app without login in yunohost, you activate password protected login from within the app"
-    help.fr = "Si publique, N'importe qui peut accéder à l'application sans se connecter à yunohost, vous pouvez cependant activer une connection par mot de passe depuis l'application"
+    help.en = "If set public, anyone can access the app without login in YunoHost, you activate password protected login from within the app"
+    help.fr = "Si publique, N'importe qui peut accéder à l'application sans se connecter à YunoHost, vous pouvez cependant activer une connection par mot de passe depuis l'application"
     type = "group"
     default = all_users
 
