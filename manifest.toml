@@ -1,0 +1,53 @@
+packaging_format = 2
+
+id = "zwave-js-ui"
+name = "Zwave-JS-UI"
+description.en = "Full featured Z-Wave Control Panel and MQTT Gateway integrated with domoticz"
+description.fr = "Panneau de controle Z-Wave et MQTT intégré avec Domoticz"
+
+version = "8.8.6~ynh2"
+
+maintainers = ["Krakinou"]
+
+[upstream]
+license = "MIT"
+website = "https://zwave-js.github.io/zwave-js-ui/#/"
+admindoc = "https://zwave-js.github.io/zwave-js-ui/#/"
+userdoc = "https://www.domoticz.com/wiki/Zwave-JS-UI"
+code = "https://github.com/zwave-js/zwave-js-ui"
+fund = "https://liberapay.com/robertsLando/donate"
+
+[integration]
+yunohost = ">= 11.1.11"
+architectures = "all"
+multi_instance = false
+ldap = "not_relevant"
+sso = "not_relevant"
+disk = "650M"
+ram.build = "2G"
+ram.runtime = "50M"
+
+[install]
+    [install.domain]
+    type = "domain"
+
+    [install.path]
+    type = "path"
+    default = "/zwavejsui"
+
+    [install.init_main_permission]
+    help.en = "If set public, anyone can access the app without login in YunoHost, you activate password protected login from within the app"
+    help.fr = "Si publique, N'importe qui peut accéder à l'application sans se connecter à YunoHost, vous pouvez cependant activer une connection par mot de passe depuis l'application"
+    type = "group"
+    default = "all_users"
+
+[resources]
+    [resources.system_user]
+
+    [resources.install_dir]
+
+    [resources.permissions]
+    main.url = "/"
+
+    [resources.ports]
+    main.default = 8091

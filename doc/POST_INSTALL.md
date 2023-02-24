@@ -1,0 +1,1 @@
+Follow the [quick start guide](https://zwave-js.github.io/zwave-js-ui/#/getting-started/quick-start?id=minimum-settings) to integrate Zwave-JS-UI in home Assistant or Domotizc.
