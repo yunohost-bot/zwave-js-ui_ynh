@@ -1,0 +1,5 @@
+test_format = 1.0
+
+[default]
+    test_upgrade_from.e4968ad.name = "Upgrade from 8.8.6~ynh1"
+    test_upgrade_from.9164618.name = "Upgrade from 8.8.5~ynh1"

@@ -27,18 +27,12 @@ Pour fonctionner correctement, cette application nécessite d'avoir installé so
 - le package [domoticz](https://github.com/YunoHost-Apps/domoticz_ynh) avec le **broker MQTT mosquitto**
 - le package [Home-Assistant](https://github.com/YunoHost-Apps/homeassistant_ynh)
 
-Follow the [quick start instruction](https://zwave-js.github.io/zwave-js-ui/#/getting-started/quick-start?id=minimum-settings) to set up the integration with one or the other.
-
-
-**Version incluse :** 8.8.6~ynh1
-## Avertissements / informations importantes
-
-
-
 
 Pour l'instant, bien que le package fonctionne (installation, désinstallation, sauvegarde, restauration...), il n'est pas intégré avec domoticz et mosquitto, les paramétrages doivent être fait manuellement depuis l'application.
 
 Pendant l'installation, la totalité de l'application doit être recompilé en utilisant yarn : cela amène à des temps d'installation très long. Un fichier de swap temporaire sera créé si moins de 2Go de mémoire sont disponibles (RAM + swap): Assurez vous d'avoir suffisament d'espace disque.
+
+**Version incluse :** 8.8.6~ynh2
 ## Documentations et ressources
 
 * Site officiel de l’app : <https://zwave-js.github.io/zwave-js-ui/#/>

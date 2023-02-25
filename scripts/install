@@ -10,49 +10,10 @@ source _common.sh
 source /usr/share/yunohost/helpers
 
 #=================================================
-# MANAGE SCRIPT FAILURE
-#=================================================
-
-ynh_clean_setup () {
-	### Remove this function if there's nothing to clean before calling the remove script.
-	true
-}
-# Exit if an error occurs during the execution of the script
-ynh_abort_if_errors
-
-#=================================================
-# RETRIEVE ARGUMENTS FROM THE MANIFEST
-#=================================================
-
-domain=$YNH_APP_ARG_DOMAIN
-path_url=$YNH_APP_ARG_PATH
-is_public=$YNH_APP_ARG_IS_PUBLIC
-app=$YNH_APP_INSTANCE_NAME
-
-#=================================================
-# CHECK IF THE APP CAN BE INSTALLED WITH THESE ARGS
-#=================================================
-ynh_script_progression --message="Validating installation parameters..." --weight=4
-
-final_path=/var/www/$app
-test ! -e "$final_path" || ynh_die --message="This path already contains a folder"
-
-# Register (book) web path
-ynh_webpath_register --app=$app --domain=$domain --path_url=$path_url
-
-#=================================================
-# STORE SETTINGS FROM MANIFEST
-#=================================================
-ynh_script_progression --message="Storing installation settings..." --weight=1
-
-ynh_app_setting_set --app=$app --key=domain --value=$domain
-ynh_app_setting_set --app=$app --key=path --value=$path_url
-
-#=================================================
 # ADD SWAP IF NEEDED
 #=================================================
 #https://github.com/zwave-js/zwave-js-ui/issues/2699
-ynh_script_progression --message="Adding swap if needed for compiling..."
+ynh_script_progression --message="Checking for RAM..."
 
 total_memory=$(ynh_get_ram --total)
 swap_needed=0
@@ -67,23 +28,11 @@ if [ $total_memory -lt $MEMORY_NEEDED ]; then
 fi
 
 #=================================================
-# STANDARD MODIFICATIONS
-#=================================================
-# FIND AND OPEN A PORT
-#=================================================
-ynh_script_progression --message="Finding an available port..." --weight=1
-
-# Find an available port
-port=$(ynh_find_port --port=8091)
-ynh_app_setting_set --app=$app --key=port --value=$port
-
-#=================================================
 # CREATE DEDICATED USER
 #=================================================
 ynh_script_progression --message="Configuring system user..." --weight=1
 
-# Create a system user
-ynh_system_user_create --username=$app --home_dir="$final_path"
+usermod -d $install_dir $app
 
 if grep dialout -q < /etc/group; then
 	usermod -a -G dialout "$app"
@@ -99,7 +48,7 @@ fi
 #=================================================
 # INSTALL EXTRA DEPENDENCIES
 #=================================================
-ynh_script_progression --message="Installing dependencies..." --weight=15
+#REMOVEME? ynh_script_progression --message="Installing dependencies..." --weight=15
 
 ynh_install_nodejs --nodejs_version=$NODEJS_VERSION
 ynh_use_nodejs
@@ -110,21 +59,20 @@ ynh_exec_warn_less $ynh_npm install ---global yarn
 #=================================================
 ynh_script_progression --message="Setting up source files..." --weight=8
 
-ynh_app_setting_set --app=$app --key=final_path --value=$final_path
 # Download, check integrity, uncompress and patch the source from app.src
-ynh_setup_source --dest_dir="$final_path"
+ynh_setup_source --dest_dir="$install_dir"
 
-chmod 750 "$final_path"
-chmod -R o-rwx "$final_path"
-chown -R $app: "$final_path"
+chmod 750 "$install_dir"
+chmod -R o-rwx "$install_dir"
+chown -R $app: "$install_dir"
 
 #=================================================
 # BUILD FROM SOURCE
 #=================================================
 ynh_script_progression --message="Building from sources..." --weight=1
 
-pushd "$final_path"
-	ynh_script_progression --message="Fetching Yarn dependencies... This can be very long, be patient !" --weight=40
+pushd "$install_dir"
+ 	ynh_script_progression --message="Fetching Yarn dependencies... This can be very long, be patient !" --weight=40
 	ynh_exec_warn_less ynh_exec_as $app env $ynh_node_load_PATH yarn plugin import workspace-tools
 	ynh_exec_warn_less ynh_exec_as $app env $ynh_node_load_PATH yarn workspaces focus --production
 	ynh_exec_warn_less ynh_exec_as $app env $ynh_node_load_PATH yarn install --network-timeout 1000000000
@@ -135,24 +83,23 @@ pushd "$final_path"
 	ynh_exec_warn_less ynh_exec_as $app env $ynh_node_load_PATH yarn install --network-timeout 1000000000
 	ynh_script_progression --message="Cleaning cache... " --weight=3
 	ynh_exec_warn_less ynh_exec_as $app env $ynh_node_load_PATH yarn cache clean 2>&1
-	ynh_script_progression --message="Building Yarn dependencies... This can be very long, be patient !" --weight=30
+ 	ynh_script_progression --message="Building Yarn dependencies... This can be very long, be patient !" --weight=30
 	#https://geeklearning.io/angular-aot-webpack-memory-trick/
 	ynh_exec_warn_less ynh_exec_as $app env $ynh_node_load_PATH NODE_OPTIONS=--max-old-space-size=2048 yarn run build
 	ynh_script_progression --message="Cleaning cache... " --weight=3
 	ynh_exec_warn_less ynh_exec_as $app env $ynh_node_load_PATH yarn cache clean 2>&1
 popd
 
-chmod 750 "$final_path"
-chmod -R o-rwx "$final_path"
-chown -R $app: "$final_path"
+chmod 750 "$install_dir"
+chmod -R o-rwx "$install_dir"
+chown -R $app: "$install_dir"
 
 
 #=================================================
 # REMOVE ADDITIONNAL SWAP
 #=================================================
-ynh_script_progression --message="Remove additionnal swap..." --weight=2
-
 if [ $swap_needed > 0 ]; then
+	ynh_script_progression --message="Remove additionnal swap..." --weight=2
 	ynh_del_swap
 fi
 #=================================================
@@ -164,65 +111,12 @@ ynh_script_progression --message="Configuring NGINX web server..." --weight=2
 ynh_add_nginx_config
 
 #=================================================
-# ADD A CONFIGURATION
-#=================================================
-#ynh_script_progression --message="Adding a configuration file..." --weight=1
-
-### You can add specific configuration files.
-###
-### Typically, put your template conf file in ../conf/your_config_file
-### The template may contain strings such as __FOO__ or __FOO_BAR__,
-### which will automatically be replaced by the values of $foo and $foo_bar
-###
-### ynh_add_config will also keep track of the config file's checksum,
-### which later during upgrade may allow to automatically backup the config file
-### if it's found that the file was manually modified
-###
-### Check the documentation of `ynh_add_config` for more info.
-
-######ynh_add_config --template="some_config_file" --destination="$final_path/some_config_file"
-
-# FIXME: this should be handled by the core in the future
-# You may need to use chmod 600 instead of 400,
-# for example if the app is expected to be able to modify its own config
-#######chmod 400 "$final_path/some_config_file"
-#######chown $app:$app "$final_path/some_config_file"
-
-### For more complex cases where you want to replace stuff using regexes,
-### you shoud rely on ynh_replace_string (which is basically a wrapper for sed)
-### When doing so, you also need to manually call ynh_store_file_checksum
-###
-### ynh_replace_string --match_string="match_string" --replace_string="replace_string" --target_file="$final_path/some_config_file"
-### ynh_store_file_checksum --file="$final_path/some_config_file"
-
-#=================================================
 # SETUP SYSTEMD
 #=================================================
 ynh_script_progression --message="Configuring a systemd service..." --weight=2
 
 # Create a dedicated systemd config
 ynh_add_systemd_config
-
-#=================================================
-# SETUP APPLICATION WITH CURL
-#=================================================
-
-### Use these lines only if the app installation needs to be finalized through
-### web forms. We generally don't want to ask the final user,
-### so we're going to use curl to automatically fill the fields and submit the
-### forms.
-
-# Set the app as temporarily public for curl call
-#####ynh_script_progression --message="Configuring SSOwat..." --weight=1
-# Making the app public for curl
-#####ynh_permission_update --permission="main" --add="visitors"
-
-# Installation with curl
-#####ynh_script_progression --message="Finalizing installation..." --weight=1
-#####ynh_local_curl "/INSTALL_PATH" "key1=value1" "key2=value2" "key3=value3"
-
-# Remove the public access
-####ynh_permission_update --permission="main" --remove="visitors"
 
 #=================================================
 # GENERIC FINALIZATION
@@ -248,34 +142,6 @@ ynh_script_progression --message="Starting a systemd service..." --weight=1
 
 # Start a systemd service
 ynh_systemd_action --service_name=$app --action="start" --line_match="Listening on port" -t 30 --log_path="/var/log/$app/$app.log"
-
-#=================================================
-# SETUP FAIL2BAN
-#=================================================
-#ynh_script_progression --message="Configuring Fail2Ban..." --weight=1
-
-# Create a dedicated Fail2Ban config
-#ynh_add_fail2ban_config --logpath="/var/log/nginx/${domain}-error.log" --failregex="Regex to match into the log for a failed login"
-
-#=================================================
-# SETUP SSOWAT
-#=================================================
-ynh_script_progression --message="Configuring permissions..." --weight=5
-
-# Make app public if necessary
-if [ $is_public -eq 1 ]
-then
-	# Everyone can access the app.
-	# The "main" permission is automatically created before the install script.
-	ynh_permission_update --permission="main" --add="visitors"
-fi
-
-#=================================================
-# RELOAD NGINX
-#=================================================
-ynh_script_progression --message="Reloading NGINX web server..." --weight=1
-
-ynh_systemd_action --service_name=nginx --action=reload
 
 #=================================================
 # END OF SCRIPT
