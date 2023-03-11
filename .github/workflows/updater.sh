@@ -4,6 +4,11 @@
 # FETCHING LATEST RELEASE AND ITS ASSETS
 #=================================================
 
+#Installing tomlq
+python3 -m venv venv
+source venv/bin/activate
+pip3 install tomlq
+
 # Fetching information
 current_version=$(cat manifest.toml | tomlq -j '.version|split("~")[0]')
 repo=$(cat manifest.toml | tomlq -j '.upstream.code|split("https://github.com/")[1]')
