@@ -34,7 +34,7 @@ For now, although the package is fully functional (install, remove, backup, rest
 During install, the whole app need to be recompile using yarn, this lead to long installation time. Also, a temporary swap file will be created if less than 2Gb of memory (RAM+Swap) are available : Be sure to have enough space on disk.
 
 
-**Shipped version:** 8.13.1~ynh1
+**Shipped version:** 8.14.1~ynh1
 ## Documentation and resources
 
 * Official app website: <https://zwave-js.github.io/zwave-js-ui/#/>

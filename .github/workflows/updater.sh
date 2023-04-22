@@ -35,10 +35,12 @@ echo "PROCEED=false" >> $GITHUB_ENV
 # Proceed only if the retrieved version is greater than the current one
 if ! dpkg --compare-versions "$current_version" "lt" "$version" ; then
     echo "::warning ::No new version available"
+    rm -rf ./venv
     exit 0
 # Proceed only if a PR for this new version does not already exist
 elif git ls-remote -q --exit-code --heads https://github.com/$GITHUB_REPOSITORY.git ci-auto-update-v$version ; then
     echo "::warning ::A branch already exists for this update"
+    rm -rf ./venv
     exit 0
 fi
 
@@ -123,7 +125,8 @@ done
 sed -i "s/^version\s*=.*/version = \"$version~ynh1\"/" manifest.toml
 
 # No need to update the README, yunohost-bot takes care of it
-
+#remove the venv folder
+rm -rf ./venv
 # The Action will proceed only if the PROCEED environment variable is set to true
 echo "PROCEED=true" >> $GITHUB_ENV
 exit 0
