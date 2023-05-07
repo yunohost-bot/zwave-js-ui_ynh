@@ -28,14 +28,6 @@ ynh_remove_systemd_config
 
 ynh_remove_logrotate
 
-#ynh_remove_nodejs
-
-#In case install or upgrade went wrong, remove script is launched, so we need to ensure additional swap is deleted
-#if [ -e /swap_$app ]; then
-#	ynh_script_progression --message="Remove additionnal swap..." --weight=2
-#	ynh_del_swap
-#fi
-
 ynh_remove_nginx_config
 
 # Remove the log files
