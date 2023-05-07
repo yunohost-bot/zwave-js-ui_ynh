@@ -5,7 +5,7 @@ name = "Zwave-JS-UI"
 description.en = "Full featured Z-Wave Control Panel and MQTT Gateway integrated with domoticz"
 description.fr = "Panneau de controle Z-Wave et MQTT intégré avec Domoticz"
 
-version = "8.14.1~ynh1"
+version = "8.15.0~ynh2"
 
 maintainers = ["Krakinou"]
 
@@ -18,13 +18,13 @@ code = "https://github.com/zwave-js/zwave-js-ui"
 fund = "https://liberapay.com/robertsLando/donate"
 
 [integration]
-yunohost = ">= 11.1.11"
-architectures = "all"
+yunohost = ">= 11.1.18"
+architectures = "arm64 armhf amd64"
 multi_instance = false
 ldap = "not_relevant"
 sso = "not_relevant"
-disk = "650M"
-ram.build = "2G"
+disk = "350M"
+ram.build = "100M"
 ram.runtime = "100M"
 
 [install]
@@ -42,6 +42,22 @@ ram.runtime = "100M"
     default = "all_users"
 
 [resources]
+        [resources.sources.main]
+        arm64.url = "https://github.com/zwave-js/zwave-js-ui/releases/download/v8.15.0/zwave-js-ui-v8.15.0-linux-arm64.zip"
+        arm64.sha256 = "092c538cb865d1591fc2c46cc08ad7aff57847ac14f396067e9e1339f4d5b344"
+        armhf.url = "https://github.com/zwave-js/zwave-js-ui/releases/download/v8.15.0/zwave-js-ui-v8.15.0-linux-armv7.zip"
+        armhf.sha256 = "6fddd163a8158e8d8ff42a604cc563b77d6893ad698c3a70ed4c43dc8444b6ae"
+        amd64.url = "https://github.com/zwave-js/zwave-js-ui/releases/download/v8.15.0/zwave-js-ui-v8.15.0-linux.zip"
+        amd64.sha256 = "a479b01abcd1d597806918e0b2d31466306cca7c8a87af1dc9e3fcc08750dc1c"
+        format="zip"
+        in_subdir=false
+        extract=true
+
+        autoupdate.strategy = "latest_github_release"
+
+        autoupdate.asset.arm64 = "*-arm64.zip"
+        autoupdate.asset.amd64 = "*-linux.zip"
+        autoupdate.asset.armhf = "*-armv7.zip"
     [resources.system_user]
 
     [resources.install_dir]
