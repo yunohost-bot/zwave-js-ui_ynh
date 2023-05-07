@@ -32,12 +32,7 @@ For now, although the package is fully functional (install, remove, backup, rest
 
 
 
-<<<<<<< HEAD
 **Shipped version:** 8.15.0~ynh2
-=======
-
-**Shipped version:** 8.15.0~ynh1
->>>>>>> refs/remotes/origin/testing
 ## Documentation and resources
 
 * Official app website: <https://zwave-js.github.io/zwave-js-ui/#/>
