@@ -31,9 +31,9 @@ fi
 #=================================================
 #REMOVEME? ynh_script_progression --message="Installing dependencies..." --weight=15
 
-ynh_install_nodejs --nodejs_version=$NODEJS_VERSION
-ynh_use_nodejs
-ynh_exec_warn_less $ynh_npm install ---global yarn
+#ynh_install_nodejs --nodejs_version=$NODEJS_VERSION
+#ynh_use_nodejs
+#ynh_exec_warn_less $ynh_npm install ---global yarn
 
 #=================================================
 # RESTORE THE APP MAIN DIR

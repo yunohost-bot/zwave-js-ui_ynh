@@ -13,19 +13,19 @@ source /usr/share/yunohost/helpers
 # ADD SWAP IF NEEDED
 #=================================================
 #https://github.com/zwave-js/zwave-js-ui/issues/2699
-ynh_script_progression --message="Checking for RAM..."
+#ynh_script_progression --message="Checking for RAM..."
 
-total_memory=$(ynh_get_ram --total)
-swap_needed=0
+#total_memory=$(ynh_get_ram --total)
+#swap_needed=0
 
-if [ $total_memory -lt $MEMORY_NEEDED ]; then
+#if [ $total_memory -lt $MEMORY_NEEDED ]; then
 	# Need a minimum of 2Go of memory
-	swap_needed=$(($MEMORY_NEEDED - $total_memory))
-	ynh_script_progression --message="Adding $swap_needed Mo to swap..."
-	SD_CARD_CAN_SWAP=1
-	ynh_add_swap --size=$swap_needed
+#	swap_needed=$(($MEMORY_NEEDED - $total_memory))
+#	ynh_script_progression --message="Adding $swap_needed Mo to swap..."
+#	SD_CARD_CAN_SWAP=1
+#	ynh_add_swap --size=$swap_needed
 
-fi
+#fi
 
 #=================================================
 # CREATE DEDICATED USER
@@ -50,58 +50,60 @@ fi
 #=================================================
 #REMOVEME? ynh_script_progression --message="Installing dependencies..." --weight=15
 
-ynh_install_nodejs --nodejs_version=$NODEJS_VERSION
-ynh_use_nodejs
-ynh_exec_warn_less $ynh_npm install ---global yarn
+#ynh_install_nodejs --nodejs_version=$NODEJS_VERSION
+#ynh_use_nodejs
+#ynh_exec_warn_less $ynh_npm install ---global yarn
 
 #=================================================
 # DOWNLOAD, CHECK AND UNPACK SOURCE
 #=================================================
 ynh_script_progression --message="Setting up source files..." --weight=8
 
-# Download, check integrity, uncompress and patch the source from app.src
-ynh_setup_source --dest_dir="$install_dir"
+# Download, check integrity, uncompress and patch the source
+ynh_setup_source --dest_dir="$install_dir" 
 
 chmod 750 "$install_dir"
 chmod -R o-rwx "$install_dir"
 chown -R $app: "$install_dir"
+
+
 
 #=================================================
 # BUILD FROM SOURCE
 #=================================================
-ynh_script_progression --message="Building from sources..." --weight=1
+#ynh_script_progression --message="Building from sources..." --weight=1
 
-pushd "$install_dir"
- 	ynh_script_progression --message="Fetching Yarn dependencies... This can be very long, be patient !" --weight=40
-	ynh_exec_warn_less ynh_exec_as $app env $ynh_node_load_PATH yarn plugin import workspace-tools
-	ynh_exec_warn_less ynh_exec_as $app env $ynh_node_load_PATH yarn workspaces focus --production
-	ynh_exec_warn_less ynh_exec_as $app env $ynh_node_load_PATH yarn install --network-timeout 1000000000
-	#On slow/low memory system, yarn silently fails with a 0 return code and nothing seems to be doable about that so far.
-	#relaunching yarn install seems to do the trick for raspberry at least as it resumes from where it fails
-	#https://github.com/yarnpkg/berry/issues/3996
-	#https://github.com/yarnpkg/berry/issues/5065
-	ynh_exec_warn_less ynh_exec_as $app env $ynh_node_load_PATH yarn install --network-timeout 1000000000
-	ynh_script_progression --message="Cleaning cache... " --weight=3
-	ynh_exec_warn_less ynh_exec_as $app env $ynh_node_load_PATH yarn cache clean 2>&1
- 	ynh_script_progression --message="Building Yarn dependencies... This can be very long, be patient !" --weight=30
-	#https://geeklearning.io/angular-aot-webpack-memory-trick/
-	ynh_exec_warn_less ynh_exec_as $app env $ynh_node_load_PATH NODE_OPTIONS=--max-old-space-size=2048 yarn run build
-	ynh_script_progression --message="Cleaning cache... " --weight=3
-	ynh_exec_warn_less ynh_exec_as $app env $ynh_node_load_PATH yarn cache clean 2>&1
-popd
+#pushd "$install_dir"
+# 	ynh_script_progression --message="Fetching Yarn dependencies... This can be very long, be patient !" --weight=40
+#	ynh_exec_warn_less ynh_exec_as $app env $ynh_node_load_PATH yarn plugin import workspace-tools
+#	ynh_exec_warn_less ynh_exec_as $app env $ynh_node_load_PATH yarn workspaces focus --production
+#	ynh_exec_warn_less ynh_exec_as $app env $ynh_node_load_PATH yarn install --network-timeout 1000000000
+#	#On slow/low memory system, yarn silently fails with a 0 return code and nothing seems to be doable about that so far.
+#	#relaunching yarn install seems to do the trick for raspberry at least as it resumes from where it fails
+#	#https://github.com/yarnpkg/berry/issues/3996
+#	#https://github.com/yarnpkg/berry/issues/5065
+#	ynh_exec_warn_less ynh_exec_as $app env $ynh_node_load_PATH yarn install --network-timeout 1000000000
+#	ynh_script_progression --message="Cleaning cache... " --weight=3
+#	ynh_exec_warn_less ynh_exec_as $app env $ynh_node_load_PATH yarn cache clean 2>&1
+ #	ynh_script_progression --message="Building Yarn dependencies... This can be very long, be patient !" --weight=30
+	##https://geeklearning.io/angular-aot-webpack-memory-trick/
+#	ynh_exec_warn_less ynh_exec_as $app env $ynh_node_load_PATH NODE_OPTIONS=--max-old-space-size=2048 yarn run build
+#	ynh_script_progression --message="Cleaning cache... " --weight=3
+#	ynh_exec_warn_less ynh_exec_as $app env $ynh_node_load_PATH yarn cache clean 2>&1
+#popd
 
-chmod 750 "$install_dir"
-chmod -R o-rwx "$install_dir"
-chown -R $app: "$install_dir"
+#chmod 750 "$install_dir"
+#chmod -R o-rwx "$install_dir"
+#chown -R $app: "$install_dir"
 
 
 #=================================================
 # REMOVE ADDITIONNAL SWAP
 #=================================================
-if [ $swap_needed > 0 ]; then
-	ynh_script_progression --message="Remove additionnal swap..." --weight=2
-	ynh_del_swap
-fi
+#if [ $swap_needed > 0 ]; then
+#	ynh_script_progression --message="Remove additionnal swap..." --weight=2
+#	ynh_del_swap
+#fi
 #=================================================
 # NGINX CONFIGURATION
 #=================================================
