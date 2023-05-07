@@ -31,10 +31,8 @@ To work correctly, this app require to install either
 For now, although the package is fully functional (install, remove, backup, restore...), it is not integrated with domoticz and mosquitto package, this means that all settings needs to be done manually from inside the app.
 
 
-During install, the whole app need to be recompile using yarn, this lead to long installation time. Also, a temporary swap file will be created if less than 2Gb of memory (RAM+Swap) are available : Be sure to have enough space on disk.
 
-
-**Shipped version:** 8.15.0~ynh1
+**Shipped version:** 8.15.0~ynh2
 ## Documentation and resources
 
 * Official app website: <https://zwave-js.github.io/zwave-js-ui/#/>
