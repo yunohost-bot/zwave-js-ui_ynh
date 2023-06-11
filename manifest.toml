@@ -55,9 +55,10 @@ ram.runtime = "150M"
 
         autoupdate.strategy = "latest_github_release"
 
-        autoupdate.asset.arm64 = "*-arm64.zip"
-        autoupdate.asset.amd64 = "*-linux.zip"
-        autoupdate.asset.armhf = "*-armv7.zip"
+        autoupdate.asset.arm64 = ".*-arm64.zip"
+        autoupdate.asset.amd64 = ".*-linux.zip"
+        autoupdate.asset.armhf = ".*-armv7.zip"
+
     [resources.system_user]
 
     [resources.install_dir]
