@@ -49,9 +49,7 @@ ram.runtime = "150M"
         armhf.sha256 = "2972eb5896d248a039e2e4760ab465a7a4ebb878791d1693ab21d416c52f91a2"
         amd64.url = "https://github.com/zwave-js/zwave-js-ui/releases/download/v8.18.0/zwave-js-ui-v8.18.0-linux.zip"
         amd64.sha256 = "f71531fe48ee7fd61adaa01e840f55dcd9837a7c5c88ee7b3d3e3852d78bd99d"
-        format="zip"
-        in_subdir=false
-        extract=true
+        in_subdir = false
 
         autoupdate.strategy = "latest_github_release"
 
