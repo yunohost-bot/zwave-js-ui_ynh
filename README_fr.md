@@ -38,7 +38,6 @@ Pour l'instant, bien que le package fonctionne (installation, désinstallation, 
 * Documentation officielle utilisateur : <https://www.domoticz.com/wiki/Zwave-JS-UI>
 * Documentation officielle de l’admin : <https://zwave-js.github.io/zwave-js-ui/#/>
 * Dépôt de code officiel de l’app : <https://github.com/zwave-js/zwave-js-ui>
-* Documentation YunoHost pour cette app : <https://yunohost.org/app_zwave-js-ui>
 * Signaler un bug : <https://github.com/YunoHost-Apps/zwave-js-ui_ynh/issues>
 
 ## Informations pour les développeurs
