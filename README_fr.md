@@ -31,14 +31,13 @@ Pour fonctionner correctement, cette application nécessite d'avoir installé so
 Pour l'instant, bien que le package fonctionne (installation, désinstallation, sauvegarde, restauration...), il n'est pas intégré avec domoticz et mosquitto, les paramétrages doivent être fait manuellement depuis l'application.
 
 
-**Version incluse :** 8.26.0~ynh1
+**Version incluse :** 9.0.3~ynh1
 ## Documentations et ressources
 
 * Site officiel de l’app : <https://zwave-js.github.io/zwave-js-ui/#/>
 * Documentation officielle utilisateur : <https://www.domoticz.com/wiki/Zwave-JS-UI>
 * Documentation officielle de l’admin : <https://zwave-js.github.io/zwave-js-ui/#/>
 * Dépôt de code officiel de l’app : <https://github.com/zwave-js/zwave-js-ui>
-* Documentation YunoHost pour cette app : <https://yunohost.org/app_zwave-js-ui>
 * Signaler un bug : <https://github.com/YunoHost-Apps/zwave-js-ui_ynh/issues>
 
 ## Informations pour les développeurs
