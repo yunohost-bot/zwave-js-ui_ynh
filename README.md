@@ -32,14 +32,13 @@ For now, although the package is fully functional (install, remove, backup, rest
 
 
 
-**Shipped version:** 8.26.0~ynh1
+**Shipped version:** 9.0.3~ynh1
 ## Documentation and resources
 
 * Official app website: <https://zwave-js.github.io/zwave-js-ui/#/>
 * Official user documentation: <https://www.domoticz.com/wiki/Zwave-JS-UI>
 * Official admin documentation: <https://zwave-js.github.io/zwave-js-ui/#/>
 * Upstream app code repository: <https://github.com/zwave-js/zwave-js-ui>
-* YunoHost documentation for this app: <https://yunohost.org/app_zwave-js-ui>
 * Report a bug: <https://github.com/YunoHost-Apps/zwave-js-ui_ynh/issues>
 
 ## Developer info
