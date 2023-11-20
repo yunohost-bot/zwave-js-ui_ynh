@@ -19,7 +19,7 @@ fund = "https://liberapay.com/robertsLando/donate"
 
 [integration]
 yunohost = ">= 11.1.18"
-architectures = [ "amd64", "armhf", "arm64" ]
+architectures = [ "amd64", "arm64" ]
 multi_instance = false
 ldap = "not_relevant"
 sso = "not_relevant"
@@ -45,8 +45,6 @@ ram.runtime = "150M"
         [resources.sources.main]
         arm64.url = "https://github.com/zwave-js/zwave-js-ui/releases/download/v9.3.2/zwave-js-ui-v9.3.2-linux-arm64.zip"
         arm64.sha256 = "bd58a6e7d69ef51e4221b81e30a88035b9f555a51b17c75f257c88475689f22f"
-        armhf.url = "https://github.com/zwave-js/zwave-js-ui/releases/download/v9.3.2/zwave-js-ui-v9.3.2-linux-armv7.zip"
-        armhf.sha256 = "7b1e07470931ca1f81f610b74631599c953b11231fe414a29458a12695a64ca8"
         amd64.url = "https://github.com/zwave-js/zwave-js-ui/releases/download/v9.3.2/zwave-js-ui-v9.3.2-linux.zip"
         amd64.sha256 = "cce3f69f12a3a9260a1d3063628dd895e271b03d8d45a868e165b3814e66da1f"
         in_subdir = false
@@ -55,7 +53,6 @@ ram.runtime = "150M"
 
         autoupdate.asset.arm64 = ".*-arm64.zip"
         autoupdate.asset.amd64 = ".*-linux.zip"
-        autoupdate.asset.armhf = ".*-armv7.zip"
 
     [resources.system_user]
 
