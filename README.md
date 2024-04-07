@@ -9,7 +9,7 @@ It shall NOT be edited by hand.
 
 [![Install Zwave-JS-UI with YunoHost](https://install-app.yunohost.org/install-with-yunohost.svg)](https://install-app.yunohost.org/?app=zwave-js-ui)
 
-*[Read this README is other languages.](./ALL_README.md)*
+*[Read this README in other languages.](./ALL_README.md)*
 
 > *This package allows you to install Zwave-JS-UI quickly and simply on a YunoHost server.*  
 > *If you don't have YunoHost, please consult [the guide](https://yunohost.org/install) to learn how to install it.*
@@ -32,7 +32,7 @@ For now, although the package is fully functional (install, remove, backup, rest
 
 
 
-**Shipped version:** 9.9.0~ynh1
+**Shipped version:** 9.10.2~ynh1
 ## Documentation and resources
 
 - Official app website: <https://zwave-js.github.io/zwave-js-ui/#/>
