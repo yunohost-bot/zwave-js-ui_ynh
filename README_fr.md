@@ -32,6 +32,7 @@ Pour l'instant, bien que le package fonctionne (installation, désinstallation, 
 
 
 **Version incluse :** 9.10.2~ynh1
+
 ## Documentations et ressources
 
 - Site officiel de l’app : <https://zwave-js.github.io/zwave-js-ui/#/>
