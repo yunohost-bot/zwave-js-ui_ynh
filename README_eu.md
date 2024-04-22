@@ -32,7 +32,7 @@ For now, although the package is fully functional (install, remove, backup, rest
 
 
 
-**Paketatutako bertsioa:** 9.10.3~ynh1
+**Paketatutako bertsioa:** 9.11.1~ynh1
 ## Dokumentazioa eta baliabideak
 
 - Aplikazioaren webgune ofiziala: <https://zwave-js.github.io/zwave-js-ui/#/>
