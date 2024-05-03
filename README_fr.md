@@ -31,7 +31,7 @@ Pour fonctionner correctement, cette application nécessite d'avoir installé so
 Pour l'instant, bien que le package fonctionne (installation, désinstallation, sauvegarde, restauration...), il n'est pas intégré avec domoticz et mosquitto, les paramétrages doivent être fait manuellement depuis l'application.
 
 
-**Version incluse :** 9.11.1~ynh1
+**Version incluse :** 9.12.0~ynh1
 ## Documentations et ressources
 
 - Site officiel de l’app : <https://zwave-js.github.io/zwave-js-ui/#/>
