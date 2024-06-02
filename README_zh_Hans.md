@@ -3,7 +3,7 @@
 请勿手动编辑。
 -->
 
-# YunoHost 的 Zwave-JS-UI
+# YunoHost 上的 Zwave-JS-UI
 
 [![集成程度](https://dash.yunohost.org/integration/zwave-js-ui.svg)](https://dash.yunohost.org/appci/app/zwave-js-ui) ![工作状态](https://ci-apps.yunohost.org/ci/badges/zwave-js-ui.status.svg) ![维护状态](https://ci-apps.yunohost.org/ci/badges/zwave-js-ui.maintain.svg)
 
@@ -32,7 +32,7 @@ For now, although the package is fully functional (install, remove, backup, rest
 
 
 
-**分发版本：** 9.12.0~ynh1
+**分发版本：** 9.13.2~ynh1
 ## 文档与资源
 
 - 官方应用网站： <https://zwave-js.github.io/zwave-js-ui/#/>
