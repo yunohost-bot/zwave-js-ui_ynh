@@ -5,7 +5,7 @@ EZ editatu eskuz.
 
 # Zwave-JS-UI YunoHost-erako
 
-[![Integrazio maila](https://dash.yunohost.org/integration/zwave-js-ui.svg)](https://dash.yunohost.org/appci/app/zwave-js-ui) ![Funtzionamendu egoera](https://ci-apps.yunohost.org/ci/badges/zwave-js-ui.status.svg) ![Mantentze egoera](https://ci-apps.yunohost.org/ci/badges/zwave-js-ui.maintain.svg)
+[![Integrazio maila](https://dash.yunohost.org/integration/zwave-js-ui.svg)](https://ci-apps.yunohost.org/ci/apps/zwave-js-ui/) ![Funtzionamendu egoera](https://ci-apps.yunohost.org/ci/badges/zwave-js-ui.status.svg) ![Mantentze egoera](https://ci-apps.yunohost.org/ci/badges/zwave-js-ui.maintain.svg)
 
 [![Instalatu Zwave-JS-UI YunoHost-ekin](https://install-app.yunohost.org/install-with-yunohost.svg)](https://install-app.yunohost.org/?app=zwave-js-ui)
 
@@ -32,7 +32,7 @@ For now, although the package is fully functional (install, remove, backup, rest
 
 
 
-**Paketatutako bertsioa:** 9.14.1~ynh1
+**Paketatutako bertsioa:** 9.14.6~ynh1
 ## Dokumentazioa eta baliabideak
 
 - Aplikazioaren webgune ofiziala: <https://zwave-js.github.io/zwave-js-ui/#/>

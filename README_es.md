@@ -5,7 +5,7 @@ No se debe editar a mano.
 
 # Zwave-JS-UI para Yunohost
 
-[![Nivel de integración](https://dash.yunohost.org/integration/zwave-js-ui.svg)](https://dash.yunohost.org/appci/app/zwave-js-ui) ![Estado funcional](https://ci-apps.yunohost.org/ci/badges/zwave-js-ui.status.svg) ![Estado En Mantención](https://ci-apps.yunohost.org/ci/badges/zwave-js-ui.maintain.svg)
+[![Nivel de integración](https://dash.yunohost.org/integration/zwave-js-ui.svg)](https://ci-apps.yunohost.org/ci/apps/zwave-js-ui/) ![Estado funcional](https://ci-apps.yunohost.org/ci/badges/zwave-js-ui.status.svg) ![Estado En Mantención](https://ci-apps.yunohost.org/ci/badges/zwave-js-ui.maintain.svg)
 
 [![Instalar Zwave-JS-UI con Yunhost](https://install-app.yunohost.org/install-with-yunohost.svg)](https://install-app.yunohost.org/?app=zwave-js-ui)
 
@@ -32,7 +32,7 @@ For now, although the package is fully functional (install, remove, backup, rest
 
 
 
-**Versión actual:** 9.14.1~ynh1
+**Versión actual:** 9.14.6~ynh1
 ## Documentaciones y recursos
 
 - Sitio web oficial: <https://zwave-js.github.io/zwave-js-ui/#/>

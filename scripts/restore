@@ -26,14 +26,6 @@ if grep gpio -q < /etc/group; then
 	usermod -a -G gpio "$app"
 fi
 
-#=================================================
-# INSTALL EXTRA DEPENDENCIES
-#=================================================
-#REMOVEME? ynh_script_progression --message="Installing dependencies..." --weight=15
-
-#ynh_install_nodejs --nodejs_version=$NODEJS_VERSION
-#ynh_use_nodejs
-#ynh_exec_warn_less $ynh_npm install ---global yarn
 
 #=================================================
 # RESTORE THE APP MAIN DIR
@@ -42,12 +34,6 @@ ynh_script_progression --message="Restoring the app main directory..." --weight=
 
 ynh_restore_file --origin_path="$install_dir"
 
-# FIXME: this should be managed by the core in the future
-# Here, as a packager, you may have to tweak the ownerhsip/permissions
-# such that the appropriate users (e.g. maybe www-data) can access
-# files in some cases.
-# But FOR THE LOVE OF GOD, do not allow r/x for "others" on the entire folder -
-# this will be treated as a security issue.
 chmod 750 "$install_dir"
 chmod -R o-rwx "$install_dir"
 chown -R $app: "$install_dir"
