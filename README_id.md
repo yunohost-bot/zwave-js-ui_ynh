@@ -32,13 +32,13 @@ For now, although the package is fully functional (install, remove, backup, rest
 
 
 
-**Versi terkirim:** 9.16.2~ynh1
+**Versi terkirim:** 9.16.3~ynh1
 ## Dokumentasi dan sumber daya
 
 - Website aplikasi resmi: <https://zwave-js.github.io/zwave-js-ui/#/>
 - Dokumentasi pengguna resmi: <https://www.domoticz.com/wiki/Zwave-JS-UI>
 - Dokumentasi admin resmi: <https://zwave-js.github.io/zwave-js-ui/#/>
-- Repositori kode aplikasi hulu: <https://github.com/zwave-js/zwave-js-ui>
+- Depot kode aplikasi hulu: <https://github.com/zwave-js/zwave-js-ui>
 - Gudang YunoHost: <https://apps.yunohost.org/app/zwave-js-ui>
 - Laporkan bug: <https://github.com/YunoHost-Apps/zwave-js-ui_ynh/issues>
 
