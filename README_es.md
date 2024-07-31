@@ -32,7 +32,7 @@ For now, although the package is fully functional (install, remove, backup, rest
 
 
 
-**Versión actual:** 9.16.3~ynh1
+**Versión actual:** 9.16.4~ynh1
 ## Documentaciones y recursos
 
 - Sitio web oficial: <https://zwave-js.github.io/zwave-js-ui/#/>
