@@ -18,12 +18,15 @@ code = "https://github.com/zwave-js/zwave-js-ui"
 fund = "https://liberapay.com/robertsLando/donate"
 
 [integration]
-yunohost = ">= 11.2.18"
+yunohost = ">= 11.2.29"
 helpers_version = "2.1"
 architectures = [ "amd64", "armhf", "arm64" ]
 multi_instance = false
+
 ldap = "not_relevant"
+
 sso = "not_relevant"
+
 disk = "350M"
 ram.build = "200M"
 ram.runtime = "150M"
